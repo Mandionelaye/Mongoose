@@ -33,14 +33,19 @@ personneModule.findOneAndUpdate({name:personName},{age:20},{new:true, runValidat
 }).catch((err)=> console.error(err))
 
 //Supprimer un document à l'aide de model.findByIdAndRemove
+function deletepersonId(personId){
 personneModule.findByIdAndRemove(personId)
 .then((doc)=> console.log("suppresion de la personne")).catch((err)=> console.error(err))
+}
 
 //MongoDB et Mongoose - Supprimer de nombreux documents avec model.remove()
-personneModule.remove({ name: "Mary" }).then((doc)=>{
+function removeManyperson(namePerson){
+personneModule.remove({ name:namePerson}).then((doc)=>{
    done(null,doc)
     console.log("suppresion de la personne:"+doc)
    }).catch((err)=> console.error(err))
+  }
+//removeManyperson("Mary")
 
 //Chain Search Query Helpers pour affiner les résultats de recherche
 personneModule.find({favoriteFoods:{$in:["burritos"]}})                        
