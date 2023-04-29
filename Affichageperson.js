@@ -37,7 +37,7 @@ personneModule.findByIdAndRemove(personId)
 .then((doc)=> console.log("suppresion de la personne")).catch((err)=> console.error(err))
 
 //MongoDB et Mongoose - Supprimer de nombreux documents avec model.remove()
-personneModuleremove({ name: "Mary" }).then((doc)=>{
+personneModule.remove({ name: "Mary" }).then((doc)=>{
    done(null,doc)
     console.log("suppresion de la personne:"+doc)
    }).catch((err)=> console.error(err))
